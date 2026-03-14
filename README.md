@@ -2,7 +2,7 @@
 
 Ce projet a pour but de monter une infrastructure locale simulant un environnement de production réel, puis d'automatiser son déploiement via Ansible.
 
-## 🏗️rchitecture (Semaine 1)
+## 🏗️Achitecture (Semaine 1)
 
 L'infrastructure est composée de 3 machines interconnectées via un réseau privé virtuel.
 
