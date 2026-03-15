@@ -1,0 +1,28 @@
+---
+- name: Déploiement de Docker et d'un site web
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Installer Docker et l'outil Python pour Ansible
+      apt:
+        name:
+          - docker.io
+          - python3-docker
+        state: present
+        update_cache: yes
+
+    - name: S'assurer que Docker est allumé et se lance au démarrage
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Lancer le conteneur du site web (Nginx)
+      docker_container:
+        name: mon_site_web
+        image: nginx:latest
+        state: started
+        restart_policy: always
+        ports:
+          - "80:80"
